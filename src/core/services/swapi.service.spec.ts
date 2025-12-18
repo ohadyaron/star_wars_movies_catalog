@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { SwapiService } from './swapi.service';
 import { Film } from '../models/film.model';
 import { Character } from '../models/character.model';
@@ -14,8 +15,11 @@ describe('SwapiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [SwapiService]
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        SwapiService
+      ]
     });
 
     service = TestBed.inject(SwapiService);

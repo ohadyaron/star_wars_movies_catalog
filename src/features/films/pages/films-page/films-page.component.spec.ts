@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FilmsPageComponent } from './films-page.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('FilmsPageComponent', () => {
@@ -11,8 +12,11 @@ describe('FilmsPageComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         FilmsPageComponent,
-        HttpClientTestingModule,
         BrowserAnimationsModule
+      ],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting()
       ]
     }).compileComponents();
 
