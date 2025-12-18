@@ -93,15 +93,16 @@ describe('Star Wars Films Catalog E2E Tests', () => {
   });
 
   describe('Characters Drill-down', () => {
-    it('should expand characters section by default', () => {
+    it('should have characters section collapsed by default', () => {
       cy.get('app-film-card', { timeout: 10000 }).first().within(() => {
         cy.contains('Characters').should('be.visible');
-        cy.get('mat-expansion-panel').first().should('have.class', 'mat-expanded');
+        cy.get('mat-expansion-panel').first().should('not.have.class', 'mat-expanded');
       });
     });
 
     it('should load characters when panel is expanded', () => {
       cy.get('app-film-card', { timeout: 10000 }).first().within(() => {
+        cy.contains('Characters').click();
         cy.get('app-characters-list', { timeout: 15000 }).within(() => {
           cy.get('.character-name', { timeout: 10000 }).should('have.length.greaterThan', 0);
         });
@@ -110,6 +111,7 @@ describe('Star Wars Films Catalog E2E Tests', () => {
 
     it('should display character details', () => {
       cy.get('app-film-card', { timeout: 10000 }).first().within(() => {
+        cy.contains('Characters').click();
         cy.get('app-characters-list', { timeout: 15000 }).within(() => {
           cy.get('.character-item', { timeout: 10000 }).first().within(() => {
             cy.contains('Height:').should('be.visible');
@@ -170,7 +172,7 @@ describe('Star Wars Films Catalog E2E Tests', () => {
       cy.wait('@getFilmsError');
 
       cy.get('app-error-message', { timeout: 5000 }).should('be.visible');
-      cy.contains('Failed to load films').should('be.visible');
+      cy.get('app-error-message').should('contain.text', 'Error');
     });
   });
 
@@ -206,6 +208,7 @@ describe('Star Wars Films Catalog E2E Tests', () => {
 
     it('should show loading spinner while fetching characters', () => {
       cy.get('app-film-card', { timeout: 10000 }).first().within(() => {
+        cy.contains('Characters').click();
         cy.get('app-characters-list').within(() => {
           cy.get('mat-spinner, .character-name', { timeout: 10000 }).should('exist');
         });

@@ -59,6 +59,8 @@
 
   .opening-crawl {
     margin-bottom: 1.5rem;
+    width: 100%;
+    overflow: hidden;
 
     .crawl-title {
       font-family: 'Orbitron', monospace;
@@ -75,9 +77,12 @@
       line-height: 1.6;
       color: rgba(255, 232, 31, 0.8);
       margin: 0 0 0.5rem 0;
-      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
       font-style: italic;
       text-align: justify;
+      max-width: 100%;
 
       &.expanded {
         max-height: none;

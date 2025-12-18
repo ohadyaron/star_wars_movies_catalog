@@ -1,0 +1,109 @@
+[0] 
+[0] > star-wars-movies-catalog@1.0.0 start
+[0] > ng serve
+[0] 
+[0] Component HMR has been enabled, see https://angular.dev/hmr for more info.
+[0] ❯ Building...
+[0] ✔ Building...
+[0] Initial chunk files | Names         |  Raw size
+[0] styles.css          | styles        | 153.36 kB | 
+[0] main.js             | main          | 141.14 kB | 
+[0] polyfills.js        | polyfills     |  89.77 kB | 
+[0] 
+[0]                     | Initial total | 384.27 kB
+[0] 
+[0] Application bundle generation complete. [0.995 seconds]
+[0] 
+[0] Watch mode enabled. Watching for file changes...
+[0] NOTE: Raw file sizes do not reflect development server per-request transformations.
+[0]   ➜  Local:   http://localhost:4200/
+[1] 
+[1] DevTools listening on ws://127.0.0.1:64526/devtools/browser/d4284a89-0b9c-458a-9999-dbf07c254222
+[1] Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
+[1] 
+[1] ====================================================================================================
+[1] 
+[1]   (Run Starting)
+[1] 
+[1]   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+[1]   │ Cypress:        13.17.0                                                                        │
+[1]   │ Browser:        Electron 118 (headless)                                                        │
+[1]   │ Node Version:   v24.3.0 (/opt/homebrew/Cellar/node/24.3.0/bin/node)                            │
+[1]   │ Specs:          1 found (films.cy.ts)                                                          │
+[1]   │ Searched:       cypress/e2e/**/*.cy.ts                                                         │
+[1]   └────────────────────────────────────────────────────────────────────────────────────────────────┘
+[1] 
+[1] 
+[1] ────────────────────────────────────────────────────────────────────────────────────────────────────
+[1]                                                                                                     
+[1]   Running:  films.cy.ts                                                                     (1 of 1)
+[1] 
+[1] 
+[1]   Star Wars Films Catalog E2E Tests
+[1]     Application Load
+[1]       ✓ should load the application successfully (1531ms)
+[1]       ✓ should display the search input (85ms)
+[1]     Films Grid
+[1]       ✓ should load and display films (113ms)
+[1]       ✓ should display film titles (114ms)
+[1]       ✓ should display film details (127ms)
+[1]     Search Functionality
+[1]       ✓ should filter films by search term (806ms)
+[1]       ✓ should show "no results" when search has no matches (945ms)
+[1]       ✓ should be case-insensitive (779ms)
+[1]       ✓ should reset results when search is cleared (1360ms)
+[1]     Film Card Expansion
+[1]       ✓ should expand and collapse opening crawl (257ms)
+[1]     Characters Drill-down
+[1]       ✓ should have characters section collapsed by default (95ms)
+[1]       ✓ should load characters when panel is expanded (231ms)
+[1]       ✓ should display character details (228ms)
+[1]     Starships Drill-down
+[1]       ✓ should load starships when panel is expanded (191ms)
+[1]     Vehicles Drill-down
+[1]       ✓ should load vehicles when panel is expanded (174ms)
+[1]     Species Drill-down
+[1]       ✓ should load species when panel is expanded (172ms)
+[1]     Error Handling
+[1]       ✓ should handle API failure gracefully (154ms)
+[1]     Responsive Design
+[1]       ✓ should display correctly on mobile viewport (90ms)
+[1]       ✓ should display correctly on tablet viewport (125ms)
+[1]       ✓ should display correctly on desktop viewport (93ms)
+[1]     Loading States
+[1]       ✓ should show loading spinner while fetching films (2197ms)
+[1]       ✓ should show loading spinner while fetching characters (177ms)
+[1] 
+[1] 
+[1]   22 passing (11s)
+[1] 
+[1] 
+[1]   (Results)
+[1] 
+[1]   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+[1]   │ Tests:        22                                                                               │
+[1]   │ Passing:      22                                                                               │
+[1]   │ Failing:      0                                                                                │
+[1]   │ Pending:      0                                                                                │
+[1]   │ Skipped:      0                                                                                │
+[1]   │ Screenshots:  0                                                                                │
+[1]   │ Video:        false                                                                            │
+[1]   │ Duration:     10 seconds                                                                       │
+[1]   │ Spec Ran:     films.cy.ts                                                                      │
+[1]   └────────────────────────────────────────────────────────────────────────────────────────────────┘
+[1] 
+[1] 
+[1] ====================================================================================================
+[1] 
+[1]   (Run Finished)
+[1] 
+[1] 
+[1]        Spec                                              Tests  Passing  Failing  Pending  Skipped  
+[1]   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+[1]   │ ✔  films.cy.ts                              00:10       22       22        -        -        - │
+[1]   └────────────────────────────────────────────────────────────────────────────────────────────────┘
+[1]     ✔  All specs passed!                        00:10       22       22        -        -        -  
+[1] 
+[1] npx wait-on http://localhost:4200 && npx cypress run exited with code 0
+--> Sending SIGTERM to other processes..
+[0] npm start exited with code SIGTERM
