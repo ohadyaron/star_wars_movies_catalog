@@ -10,11 +10,11 @@ $light-theme: mat.define-theme((
 ));
 
 html {
-  @include mat.all-component-themes($light-theme);
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  @include mat.all-component-themes($light-theme);
 }
 
 body {

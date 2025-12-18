@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { FilmsPageComponent } from '../features/films/pages/films-page/films-page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FilmsPageComponent],
+  imports: [FilmsPageComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
