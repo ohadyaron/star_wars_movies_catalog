@@ -1,0 +1,161 @@
+[0] 
+[0] > star-wars-movies-catalog@1.0.0 start
+[0] > ng serve
+[0] 
+[0] Component HMR has been enabled, see https://angular.dev/hmr for more info.
+[0] ❯ Building...
+[0] ✔ Building...
+[0] Initial chunk files | Names         |  Raw size
+[0] styles.css          | styles        | 149.52 kB | 
+[0] main.js             | main          | 128.89 kB | 
+[0] polyfills.js        | polyfills     |  89.77 kB | 
+[0] 
+[0]                     | Initial total | 368.18 kB
+[0] 
+[0] Application bundle generation complete. [1.028 seconds]
+[0] 
+[0] Watch mode enabled. Watching for file changes...
+[0] NOTE: Raw file sizes do not reflect development server per-request transformations.
+[0]   ➜  Local:   http://localhost:4200/
+[1] 
+[1] DevTools listening on ws://127.0.0.1:59437/devtools/browser/9894fc7a-6289-48da-86f2-a69be28defb0
+[1] Missing baseUrl in compilerOptions. tsconfig-paths will be skipped
+[1] 
+[1] ====================================================================================================
+[1] 
+[1]   (Run Starting)
+[1] 
+[1]   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+[1]   │ Cypress:        13.17.0                                                                        │
+[1]   │ Browser:        Electron 118 (headless)                                                        │
+[1]   │ Node Version:   v24.3.0 (/opt/homebrew/Cellar/node/24.3.0/bin/node)                            │
+[1]   │ Specs:          1 found (films.cy.ts)                                                          │
+[1]   │ Searched:       cypress/e2e/**/*.cy.ts                                                         │
+[1]   └────────────────────────────────────────────────────────────────────────────────────────────────┘
+[1] 
+[1] 
+[1] ────────────────────────────────────────────────────────────────────────────────────────────────────
+[1]                                                                                                     
+[1]   Running:  films.cy.ts                                                                     (1 of 1)
+[1] 
+[1] 
+[1]   Star Wars Films Catalog E2E Tests
+[1]     Application Load
+[1]       ✓ should load the application successfully (1917ms)
+[1]       ✓ should display the search input (82ms)
+[1]     Films Grid
+[1]       ✓ should load and display films (1124ms)
+[1]       ✓ should display film titles (91ms)
+[1]       ✓ should display film details (207ms)
+[1]     Search Functionality
+[1]       ✓ should filter films by search term (811ms)
+[1]       ✓ should show "no results" when search has no matches (956ms)
+[1]       ✓ should be case-insensitive (776ms)
+[1]       ✓ should reset results when search is cleared (1363ms)
+[1]     Film Card Expansion
+[1]       ✓ should expand and collapse opening crawl (256ms)
+[1]     Characters Drill-down
+[1]       1) should expand characters section by default
+[1]       2) should load characters when panel is expanded
+[1]       3) should display character details
+[1]     Starships Drill-down
+[1]       ✓ should load starships when panel is expanded (2276ms)
+[1]     Vehicles Drill-down
+[1]       ✓ should load vehicles when panel is expanded (355ms)
+[1]     Species Drill-down
+[1]       ✓ should load species when panel is expanded (535ms)
+[1]     Error Handling
+[1]       4) should handle API failure gracefully
+[1]     Responsive Design
+[1]       ✓ should display correctly on mobile viewport (116ms)
+[1]       ✓ should display correctly on tablet viewport (145ms)
+[1]       ✓ should display correctly on desktop viewport (141ms)
+[1]     Loading States
+[1]       ✓ should show loading spinner while fetching films (2244ms)
+[1]       5) should show loading spinner while fetching characters
+[1] 
+[1] 
+[1]   17 passing (1m)
+[1]   5 failing
+[1] 
+[1]   1) Star Wars Films Catalog E2E Tests
+[1]        Characters Drill-down
+[1]          should expand characters section by default:
+[1]      AssertionError: Timed out retrying after 10000ms: expected '<mat-expansion-panel.mat-expansion-panel.mat-expansion-panel-animations-enabled>' to have class 'mat-expanded'
+[1]       at Context.eval (webpack://star-wars-movies-catalog/./cypress/e2e/films.cy.ts:99:46)
+[1] 
+[1]   2) Star Wars Films Catalog E2E Tests
+[1]        Characters Drill-down
+[1]          should load characters when panel is expanded:
+[1]      AssertionError: Timed out retrying after 10000ms: Expected to find element: `.character-name`, but never found it.
+[1]       at Context.eval (webpack://star-wars-movies-catalog/./cypress/e2e/films.cy.ts:106:56)
+[1] 
+[1]   3) Star Wars Films Catalog E2E Tests
+[1]        Characters Drill-down
+[1]          should display character details:
+[1]      AssertionError: Timed out retrying after 10000ms: Expected to find element: `.character-item`, but never found it.
+[1]       at Context.eval (webpack://star-wars-movies-catalog/./cypress/e2e/films.cy.ts:114:13)
+[1] 
+[1]   4) Star Wars Films Catalog E2E Tests
+[1]        Error Handling
+[1]          should handle API failure gracefully:
+[1]      AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Failed to load films' but never did.
+[1]       at Context.eval (webpack://star-wars-movies-catalog/./cypress/e2e/films.cy.ts:173:42)
+[1] 
+[1]   5) Star Wars Films Catalog E2E Tests
+[1]        Loading States
+[1]          should show loading spinner while fetching characters:
+[1]      AssertionError: Timed out retrying after 10000ms: Expected to find element: `mat-spinner, .character-name`, but never found it.
+[1]       at Context.eval (webpack://star-wars-movies-catalog/./cypress/e2e/films.cy.ts:210:69)
+[1] 
+[1] 
+[1] 
+[1] 
+[1]   (Results)
+[1] 
+[1]   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+[1]   │ Tests:        22                                                                               │
+[1]   │ Passing:      17                                                                               │
+[1]   │ Failing:      5                                                                                │
+[1]   │ Pending:      0                                                                                │
+[1]   │ Skipped:      0                                                                                │
+[1]   │ Screenshots:  5                                                                                │
+[1]   │ Video:        false                                                                            │
+[1]   │ Duration:     1 minute, 5 seconds                                                              │
+[1]   │ Spec Ran:     films.cy.ts                                                                      │
+[1]   └────────────────────────────────────────────────────────────────────────────────────────────────┘
+[1] 
+[1] 
+[1]   (Screenshots)
+[1] 
+[1]   -  /Users/ohadyaron/dev/star_wars_movies_catalog/cypress/screenshots/films.cy.ts/St    (2560x1440)
+[1]      ar Wars Films Catalog E2E Tests -- Characters Drill-down -- should expand charac               
+[1]      ters section by default (failed).png                                                           
+[1]   -  /Users/ohadyaron/dev/star_wars_movies_catalog/cypress/screenshots/films.cy.ts/St    (2560x1440)
+[1]      ar Wars Films Catalog E2E Tests -- Characters Drill-down -- should load characte               
+[1]      rs when panel is expanded (failed).png                                                         
+[1]   -  /Users/ohadyaron/dev/star_wars_movies_catalog/cypress/screenshots/films.cy.ts/St    (2560x1440)
+[1]      ar Wars Films Catalog E2E Tests -- Characters Drill-down -- should display chara               
+[1]      cter details (failed).png                                                                      
+[1]   -  /Users/ohadyaron/dev/star_wars_movies_catalog/cypress/screenshots/films.cy.ts/St    (2560x1440)
+[1]      ar Wars Films Catalog E2E Tests -- Error Handling -- should handle API failure g               
+[1]      racefully (failed).png                                                                         
+[1]   -  /Users/ohadyaron/dev/star_wars_movies_catalog/cypress/screenshots/films.cy.ts/St    (2560x1440)
+[1]      ar Wars Films Catalog E2E Tests -- Loading States -- should show loading spinner               
+[1]       while fetching characters (failed).png                                                        
+[1] 
+[1] 
+[1] ====================================================================================================
+[1] 
+[1]   (Run Finished)
+[1] 
+[1] 
+[1]        Spec                                              Tests  Passing  Failing  Pending  Skipped  
+[1]   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+[1]   │ ✖  films.cy.ts                              01:05       22       17        5        -        - │
+[1]   └────────────────────────────────────────────────────────────────────────────────────────────────┘
+[1]     ✖  1 of 1 failed (100%)                     01:05       22       17        5        -        -  
+[1] 
+[1] npx wait-on http://localhost:4200 && npx cypress run exited with code 5
+--> Sending SIGTERM to other processes..
+[0] npm start exited with code SIGTERM
