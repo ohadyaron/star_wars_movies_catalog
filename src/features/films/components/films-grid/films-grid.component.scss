@@ -10,7 +10,7 @@
   .films-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 1.5rem;
+    gap: 2rem;
     
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
@@ -24,8 +24,12 @@
   .no-results {
     text-align: center;
     padding: 3rem;
-    color: rgba(0, 0, 0, 0.6);
-    font-size: 1.125rem;
+    color: #FFE81F;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0 10px rgba(255, 232, 31, 0.6);
 
     p {
       margin: 0;

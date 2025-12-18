@@ -2,9 +2,14 @@
   padding: 0.5rem 0;
 
   .character-item {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(255, 232, 31, 0.2);
     padding: 1rem 0;
     height: auto;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 232, 31, 0.05);
+    }
 
     &:last-child {
       border-bottom: none;
@@ -16,8 +21,11 @@
       .character-name {
         margin: 0 0 0.75rem 0;
         font-size: 1.125rem;
-        font-weight: 600;
-        color: #1a237e;
+        font-weight: 700;
+        color: #FFD700;
+        font-family: 'Orbitron', monospace;
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
       }
 
       .character-details {
@@ -35,12 +43,12 @@
 
           .label {
             font-weight: 600;
-            color: rgba(0, 0, 0, 0.6);
+            color: rgba(255, 215, 0, 0.8);
             font-size: 0.875rem;
           }
 
           .value {
-            color: rgba(0, 0, 0, 0.87);
+            color: rgba(255, 232, 31, 0.9);
             font-size: 0.875rem;
           }
         }
