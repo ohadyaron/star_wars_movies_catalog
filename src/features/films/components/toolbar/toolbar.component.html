@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="toolbar">
+  <div class="toolbar-content">
+    <h1 class="app-title">Star Wars Films Catalog</h1>
+    
+    <mat-form-field class="search-field" appearance="outline">
+      <mat-label>Search films by title</mat-label>
+      <input
+        matInput
+        type="text"
+        [formControl]="searchControl"
+        placeholder="e.g., A New Hope"
+        aria-label="Search films by title"
+      />
+    </mat-form-field>
+  </div>
+</mat-toolbar>

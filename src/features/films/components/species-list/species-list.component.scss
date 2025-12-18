@@ -1,0 +1,61 @@
+.panel-content {
+  padding: 0.5rem 0;
+
+  .species-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 1rem 0;
+    height: auto;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .species-info {
+      width: 100%;
+
+      .species-name {
+        margin: 0 0 0.75rem 0;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1a237e;
+      }
+
+      .species-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.5rem;
+
+        @media (max-width: 600px) {
+          grid-template-columns: 1fr;
+        }
+
+        .detail-row {
+          display: flex;
+          gap: 0.5rem;
+
+          .label {
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 0.875rem;
+          }
+
+          .value {
+            color: rgba(0, 0, 0, 0.87);
+            font-size: 0.875rem;
+          }
+        }
+      }
+    }
+  }
+
+  .no-data {
+    text-align: center;
+    padding: 1rem;
+    color: rgba(0, 0, 0, 0.6);
+    font-style: italic;
+
+    p {
+      margin: 0;
+    }
+  }
+}

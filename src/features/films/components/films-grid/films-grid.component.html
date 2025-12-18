@@ -1,0 +1,22 @@
+<div class="films-grid-container">
+  <app-loading-spinner
+    *ngIf="isLoading$ | async"
+    message="Loading Star Wars films..."
+  ></app-loading-spinner>
+
+  <app-error-message
+    *ngIf="error$ | async as errorMessage"
+    [message]="errorMessage"
+  ></app-error-message>
+
+  <div class="films-grid" *ngIf="(films$ | async) as films">
+    <app-film-card
+      *ngFor="let film of films; trackBy: trackByFilmUrl"
+      [film]="film"
+    ></app-film-card>
+
+    <div class="no-results" *ngIf="films.length === 0 && !(isLoading$ | async) && !(error$ | async)">
+      <p>No films found matching your search criteria.</p>
+    </div>
+  </div>
+</div>

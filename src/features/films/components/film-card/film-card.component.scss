@@ -1,0 +1,66 @@
+.film-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  mat-card-header {
+    margin-bottom: 1rem;
+  }
+
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a237e;
+  }
+
+  mat-card-subtitle {
+    font-size: 1rem;
+    margin-top: 0.25rem;
+  }
+
+  .film-details {
+    margin-bottom: 1.5rem;
+
+    .detail-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      .detail-label {
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .detail-value {
+        color: rgba(0, 0, 0, 0.87);
+      }
+    }
+  }
+
+  .opening-crawl {
+    margin-bottom: 1.5rem;
+
+    .crawl-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem 0;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    .crawl-text {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: rgba(0, 0, 0, 0.6);
+      margin: 0 0 0.5rem 0;
+      white-space: pre-wrap;
+
+      &.expanded {
+        max-height: none;
+      }
+    }
+  }
+
+  .drill-down-sections {
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,58 @@
+<mat-expansion-panel (opened)="onPanelOpened()">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Characters ({{ characterUrls.length }})
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div class="panel-content">
+    <app-loading-spinner
+      *ngIf="(loadingState$ | async)?.isLoading"
+      [diameter]="40"
+      message="Loading characters..."
+    ></app-loading-spinner>
+
+    <app-error-message
+      *ngIf="(loadingState$ | async)?.error as errorMessage"
+      [message]="errorMessage"
+    ></app-error-message>
+
+    <mat-list *ngIf="(characters$ | async) as characters">
+      <mat-list-item *ngFor="let character of characters; trackBy: trackByCharacterUrl" class="character-item">
+        <div class="character-info">
+          <h4 class="character-name">{{ character.name }}</h4>
+          <div class="character-details">
+            <div class="detail-row">
+              <span class="label">Height:</span>
+              <span class="value">{{ character.height }} cm</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Mass:</span>
+              <span class="value">{{ character.mass }} kg</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Hair Color:</span>
+              <span class="value">{{ character.hair_color }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Skin Color:</span>
+              <span class="value">{{ character.skin_color }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Eye Color:</span>
+              <span class="value">{{ character.eye_color }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Birth Year:</span>
+              <span class="value">{{ character.birth_year }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-list-item>
+      
+      <div class="no-data" *ngIf="characters.length === 0 && !(loadingState$ | async)?.isLoading">
+        <p>No characters available for this film.</p>
+      </div>
+    </mat-list>
+  </div>
+</mat-expansion-panel>

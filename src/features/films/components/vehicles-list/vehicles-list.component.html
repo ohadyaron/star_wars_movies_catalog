@@ -1,0 +1,62 @@
+<mat-expansion-panel (opened)="onPanelOpened()">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Vehicles ({{ vehicleUrls.length }})
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div class="panel-content">
+    <app-loading-spinner
+      *ngIf="(loadingState$ | async)?.isLoading"
+      [diameter]="40"
+      message="Loading vehicles..."
+    ></app-loading-spinner>
+
+    <app-error-message
+      *ngIf="(loadingState$ | async)?.error as errorMessage"
+      [message]="errorMessage"
+    ></app-error-message>
+
+    <mat-list *ngIf="(vehicles$ | async) as vehicles">
+      <mat-list-item *ngFor="let vehicle of vehicles; trackBy: trackByVehicleUrl" class="vehicle-item">
+        <div class="vehicle-info">
+          <h4 class="vehicle-name">{{ vehicle.name }}</h4>
+          <div class="vehicle-details">
+            <div class="detail-row">
+              <span class="label">Model:</span>
+              <span class="value">{{ vehicle.model }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Manufacturer:</span>
+              <span class="value">{{ vehicle.manufacturer }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Class:</span>
+              <span class="value">{{ vehicle.vehicle_class }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Cost:</span>
+              <span class="value">{{ vehicle.cost_in_credits }} credits</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Length:</span>
+              <span class="value">{{ vehicle.length }} m</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Crew:</span>
+              <span class="value">{{ vehicle.crew }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Passengers:</span>
+              <span class="value">{{ vehicle.passengers }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-list-item>
+      
+      <div class="no-data" *ngIf="vehicles.length === 0 && !(loadingState$ | async)?.isLoading">
+        <p>No vehicles available for this film.</p>
+      </div>
+    </mat-list>
+  </div>
+</mat-expansion-panel>

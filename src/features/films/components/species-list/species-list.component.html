@@ -1,0 +1,66 @@
+<mat-expansion-panel (opened)="onPanelOpened()">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Species ({{ speciesUrls.length }})
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div class="panel-content">
+    <app-loading-spinner
+      *ngIf="(loadingState$ | async)?.isLoading"
+      [diameter]="40"
+      message="Loading species..."
+    ></app-loading-spinner>
+
+    <app-error-message
+      *ngIf="(loadingState$ | async)?.error as errorMessage"
+      [message]="errorMessage"
+    ></app-error-message>
+
+    <mat-list *ngIf="(species$ | async) as speciesList">
+      <mat-list-item *ngFor="let species of speciesList; trackBy: trackBySpeciesUrl" class="species-item">
+        <div class="species-info">
+          <h4 class="species-name">{{ species.name }}</h4>
+          <div class="species-details">
+            <div class="detail-row">
+              <span class="label">Classification:</span>
+              <span class="value">{{ species.classification }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Designation:</span>
+              <span class="value">{{ species.designation }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Average Height:</span>
+              <span class="value">{{ species.average_height }} cm</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Average Lifespan:</span>
+              <span class="value">{{ species.average_lifespan }} years</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Language:</span>
+              <span class="value">{{ species.language }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Skin Colors:</span>
+              <span class="value">{{ species.skin_colors }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Hair Colors:</span>
+              <span class="value">{{ species.hair_colors }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="label">Eye Colors:</span>
+              <span class="value">{{ species.eye_colors }}</span>
+            </div>
+          </div>
+        </div>
+      </mat-list-item>
+      
+      <div class="no-data" *ngIf="speciesList.length === 0 && !(loadingState$ | async)?.isLoading">
+        <p>No species available for this film.</p>
+      </div>
+    </mat-list>
+  </div>
+</mat-expansion-panel>
