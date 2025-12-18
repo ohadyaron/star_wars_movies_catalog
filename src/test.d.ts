@@ -8,9 +8,12 @@ declare global {
       toEqual(expected: any, expectationFailOutput?: any): void;
       toBeTruthy(expectationFailOutput?: any): void;
       toBeFalsy(expectationFailOutput?: any): void;
+      toBeNull(expectationFailOutput?: any): void;
       toContain(expected: any, expectationFailOutput?: any): void;
+      toBeLessThan(expected: any, expectationFailOutput?: any): void;
       toHaveBeenCalled(): void;
       toHaveBeenCalledWith(...params: any[]): void;
+      toHaveBeenCalledTimes(expected: number): void;
     }
   }
 }
