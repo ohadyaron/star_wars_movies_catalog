@@ -88,14 +88,57 @@ body {
 }
 
 .mat-expansion-panel {
-  background-color: rgba(26, 35, 50, 0.8) !important;
-  border: 1px solid rgba(255, 232, 31, 0.3) !important;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 35, 50, 0.9) 100%) !important;
+  border: 2px solid $sw-yellow !important;
+  border-radius: 8px !important;
+  margin: 0.75rem 0 !important;
+  box-shadow: 
+    0 0 15px rgba(255, 232, 31, 0.4),
+    inset 0 0 20px rgba(255, 232, 31, 0.05) !important;
   color: $sw-yellow !important;
+  transition: all 0.3s ease !important;
+  
+  &:hover {
+    border-color: $sw-gold !important;
+    box-shadow: 
+      0 0 25px rgba(255, 232, 31, 0.6),
+      inset 0 0 30px rgba(255, 232, 31, 0.1) !important;
+    transform: translateX(3px) !important;
+  }
+  
+  &.mat-expanded {
+    border-color: $sw-gold !important;
+    box-shadow: 
+      0 0 30px rgba(255, 215, 0, 0.7),
+      inset 0 0 40px rgba(255, 215, 0, 0.1) !important;
+  }
 }
 
 .mat-expansion-panel-header {
-  color: $sw-gold !important;
-  font-weight: 500 !important;
+  color: $sw-yellow !important;
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15rem !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 8px !important;
+  
+  &:hover {
+    background-color: rgba(255, 232, 31, 0.08) !important;
+    color: $sw-gold !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6) !important;
+  }
+  
+  .mat-expansion-indicator::after {
+    color: $sw-yellow !important;
+    border-width: 0 3px 3px 0 !important;
+    padding: 4px !important;
+  }
+}
+
+.mat-expansion-panel-body {
+  padding: 1rem 1.5rem 1.5rem !important;
 }
 
 .mat-mdc-list-item {
