@@ -2,23 +2,13 @@
 
 A production-ready Angular Single Page Application that displays Star Wars films from the SWAPI (Star Wars API). Built with Angular 17, TypeScript, RxJS, Angular Material, and standalone components.
 
-## 🚀 Features
 
-- **Single Route Application** - Clean, focused SPA on root route (/)
-- **Real-time Search** - Debounced (300ms), case-insensitive film search
-- **Responsive Grid Layout** - Adaptive film cards using Angular Material
-- **Lazy-Loaded Drill-downs** - Characters, Starships, Vehicles, and Species load on-demand
-- **OnPush Change Detection** - Performance-optimized throughout
-- **Comprehensive Testing** - Unit tests (Karma/Jasmine) and E2E tests (Cypress)
-- **Strict TypeScript** - No `any` types, full type safety
-- **Standalone Components** - Modern Angular architecture (no NgModules)
-
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js (v18 or higher)
 - npm (v9 or higher)
 
-## 🛠️ Installation
+## Installation
 
 ```bash
 # Install dependencies
@@ -34,18 +24,7 @@ npm start
 # Navigate to http://localhost:4200
 ```
 
-## 🧪 Testing
-
-### ⚠️ Unit Tests - Known Issue
-
-**Status**: Unit tests are written and comprehensive but cannot currently be executed due to a known incompatibility between Karma 6.4.4 and Angular 19.2.
-
-**Issue**: Karma throws `TypeError: Cannot read properties of undefined (reading 'filter')` at file-list.js:74
-
-**Resolution Options**:
-1. Wait for upstream Karma fix (Angular team is aware)
-2. Use E2E tests for validation (fully functional)
-3. Test files are correct and follow Angular best practices
+## Testing
 
 ```bash
 # Run tests in watch mode (currently fails due to Karma bug)
@@ -55,7 +34,7 @@ npm test
 npm run test:ci
 ```
 
-### ✅ E2E Tests (Cypress) - Fully Functional
+### E2E Tests (Cypress) - Fully Functional
 
 E2E tests work correctly and validate all application functionality.
 
@@ -80,7 +59,7 @@ npm run build
 # Output will be in dist/star-wars-movies-catalog
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 star-wars-movies-catalog/
@@ -181,8 +160,6 @@ star-wars-movies-catalog/
 └── tsconfig.spec.json
 ```
 
-## 🎯 Key Technical Decisions
-
 ### 1. **Architecture Pattern**
 
 The project follows a **layered architecture**:
@@ -209,13 +186,6 @@ SwapiService (forkJoin for parallel requests)
 Display Data
 ```
 
-**Key Points:**
-- Search uses `debounceTime(300)` and `distinctUntilChanged()` to minimize API calls
-- Film filtering happens client-side after initial load
-- Drill-down sections use lazy loading - data fetched only on first expansion
-- `forkJoin` loads all related resources (e.g., all characters) in parallel
-- `switchMap` ensures proper async flow without nested subscriptions
-
 ### 3. **Lazy Loading Strategy**
 
 Each drill-down component:
@@ -225,10 +195,6 @@ Each drill-down component:
 4. If not, triggers API request via `SwapiService`
 5. Sets `hasLoaded = true` to prevent duplicate requests
 
-**Benefits:**
-- Reduced initial page load
-- Bandwidth savings (only load what users view)
-- Better performance for films with many related resources
 
 ### 4. **Performance Optimizations**
 
@@ -269,14 +235,8 @@ Each drill-down component:
   - Error scenarios handled
   - Responsive design verified
 
-### 7. **Type Safety**
 
-- Strict TypeScript mode enabled
-- No `any` types anywhere
-- Strongly-typed interfaces for all API responses
-- Type guards for null checks (e.g., filtering out failed requests)
-
-## 🌐 API
+## API
 
 Uses **SWAPI (Star Wars API)** via https://swapi.info/api
 
@@ -287,7 +247,7 @@ Endpoints:
 - `GET /vehicles/:id` - Vehicle details
 - `GET /species/:id` - Species details
 
-## 📊 Component Hierarchy
+## Component Hierarchy
 
 ```
 AppComponent
@@ -305,36 +265,8 @@ AppComponent
                 └── SpeciesListComponent
 ```
 
-## 🎨 Styling Approach
 
-- Angular Material's Indigo-Pink theme
-- SCSS for all component styles (no inline styles)
-- External style files only (`.component.scss`)
-- Responsive design with CSS Grid and Flexbox
-- Mobile-first approach with media queries
-
-## 🔒 Production Readiness
-
-✅ Strict TypeScript configuration
-✅ No deprecated Angular APIs
-✅ Standalone components (modern Angular)
-✅ OnPush change detection everywhere
-✅ Comprehensive error handling
-✅ Loading states for all async operations
-✅ Accessibility (aria-labels)
-✅ Responsive design
-✅ Full test coverage (unit + E2E)
-✅ Production build optimization
-
-## 📝 Code Quality
-
-- **Linting**: Angular ESLint rules
-- **Formatting**: Consistent code style
-- **No Magic Strings**: Constants and enums
-- **DRY Principle**: Shared components for loading/error states
-- **Single Responsibility**: Each component/service has one clear purpose
-
-## 🚀 Deployment
+## Deployment
 
 ```bash
 # Build for production
@@ -345,14 +277,4 @@ npm run build
 npx http-server dist/star-wars-movies-catalog
 ```
 
-## 🤝 Contributing
 
-This is a production-ready reference implementation following Angular best practices.
-
-## 📄 License
-
-MIT
-
----
-
-**Built with ❤️ using Angular 17, TypeScript, RxJS, and Angular Material**

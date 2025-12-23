@@ -26,7 +26,7 @@ describe('LoadingSpinnerComponent', () => {
   });
 
   it('should display custom message when provided', () => {
-    component.message = 'Please wait...';
+    fixture.componentRef.setInput('message', 'Please wait...');
     fixture.detectChanges();
     
     const compiled = fixture.nativeElement as HTMLElement;

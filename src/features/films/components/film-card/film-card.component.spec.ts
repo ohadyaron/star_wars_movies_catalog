@@ -2,6 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FilmCardComponent } from './film-card.component';
 import { Film } from '../../../../core/models/film.model';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('FilmCardComponent', () => {
   let component: FilmCardComponent;
@@ -26,7 +28,11 @@ describe('FilmCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FilmCardComponent, BrowserAnimationsModule]
+      imports: [FilmCardComponent, BrowserAnimationsModule],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting()
+      ]
     }).compileComponents();
 
     fixture = TestBed.createComponent(FilmCardComponent);
@@ -71,20 +77,23 @@ describe('FilmCardComponent', () => {
   });
 
   it('should toggle crawl expansion on button click', () => {
-    component.film = {
+    const longFilm = {
       ...mockFilm,
       opening_crawl: 'A'.repeat(200)
     };
+    fixture.componentRef.setInput('film', longFilm);
     fixture.detectChanges();
 
-    const button = fixture.nativeElement.querySelector('button');
+    const compiled = fixture.nativeElement as HTMLElement;
+    const button = compiled.querySelector('button') as HTMLButtonElement;
+    expect(button).toBeTruthy(); // Button should exist for long text
     expect(component.crawlExpanded).toBe(false);
 
-    button?.click();
+    button.click();
     fixture.detectChanges();
     expect(component.crawlExpanded).toBe(true);
 
-    button?.click();
+    button.click();
     fixture.detectChanges();
     expect(component.crawlExpanded).toBe(false);
   });

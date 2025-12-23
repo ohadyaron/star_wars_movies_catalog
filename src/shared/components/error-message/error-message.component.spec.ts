@@ -26,7 +26,7 @@ describe('ErrorMessageComponent', () => {
   });
 
   it('should display custom error message', () => {
-    component.message = 'Failed to load data';
+    fixture.componentRef.setInput('message', 'Failed to load data');
     fixture.detectChanges();
     
     const compiled = fixture.nativeElement as HTMLElement;

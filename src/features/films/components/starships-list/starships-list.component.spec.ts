@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 describe('StarshipsListComponent', () => {
   let component: StarshipsListComponent;
   let fixture: ComponentFixture<StarshipsListComponent>;
-  let swapiService: jasmine.SpyObj<SwapiService>;
+  let swapiService: jest.Mocked<SwapiService>;
 
   const mockStarships: Starship[] = [
     {
@@ -34,7 +34,9 @@ describe('StarshipsListComponent', () => {
   ];
 
   beforeEach(async () => {
-    const swapiServiceSpy = jasmine.createSpyObj('SwapiService', ['getStarships']);
+    const swapiServiceSpy = {
+      getStarships: jest.fn()
+    } as unknown as jest.Mocked<SwapiService>;
 
     await TestBed.configureTestingModule({
       imports: [StarshipsListComponent, BrowserAnimationsModule],
@@ -45,7 +47,7 @@ describe('StarshipsListComponent', () => {
 
     fixture = TestBed.createComponent(StarshipsListComponent);
     component = fixture.componentInstance;
-    swapiService = TestBed.inject(SwapiService) as jasmine.SpyObj<SwapiService>;
+    swapiService = TestBed.inject(SwapiService) as jest.Mocked<SwapiService>;
     component.starshipUrls = ['https://swapi.info/api/starships/12'];
     fixture.detectChanges();
   });
@@ -55,7 +57,7 @@ describe('StarshipsListComponent', () => {
   });
 
   it('should load starships when panel is opened', () => {
-    swapiService.getStarships.and.returnValue(of(mockStarships));
+    swapiService.getStarships.mockReturnValue(of(mockStarships));
     
     component.onPanelOpened();
     
@@ -63,7 +65,7 @@ describe('StarshipsListComponent', () => {
   });
 
   it('should display starships after loading', (done) => {
-    swapiService.getStarships.and.returnValue(of(mockStarships));
+    swapiService.getStarships.mockReturnValue(of(mockStarships));
     
     component.onPanelOpened();
     
@@ -78,7 +80,7 @@ describe('StarshipsListComponent', () => {
 
   it('should handle errors when loading starships', (done) => {
     const errorMessage = 'Failed to load starships';
-    swapiService.getStarships.and.returnValue(
+    swapiService.getStarships.mockReturnValue(
       throwError(() => new Error(errorMessage))
     );
     
@@ -93,7 +95,7 @@ describe('StarshipsListComponent', () => {
   });
 
   it('should only load starships once', () => {
-    swapiService.getStarships.and.returnValue(of(mockStarships));
+    swapiService.getStarships.mockReturnValue(of(mockStarships));
     
     component.onPanelOpened();
     component.onPanelOpened();

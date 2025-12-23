@@ -2,14 +2,19 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ToolbarComponent } from './toolbar.component';
 import { FilmSearchService } from '../../services/film-search.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BehaviorSubject } from 'rxjs';
 
 describe('ToolbarComponent', () => {
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
-  let filmSearchService: jasmine.SpyObj<FilmSearchService>;
+  let filmSearchService: jest.Mocked<FilmSearchService>;
 
   beforeEach(async () => {
-    const filmSearchServiceSpy = jasmine.createSpyObj('FilmSearchService', ['setSearchTerm']);
+    const filmSearchServiceSpy = {
+      setSearchTerm: jest.fn(),
+      searchTerm$: new BehaviorSubject<string>(''),
+      getCurrentSearchTerm: jest.fn().mockReturnValue('')
+    } as unknown as jest.Mocked<FilmSearchService>;
 
     await TestBed.configureTestingModule({
       imports: [ToolbarComponent, BrowserAnimationsModule],
@@ -20,7 +25,7 @@ describe('ToolbarComponent', () => {
 
     fixture = TestBed.createComponent(ToolbarComponent);
     component = fixture.componentInstance;
-    filmSearchService = TestBed.inject(FilmSearchService) as jasmine.SpyObj<FilmSearchService>;
+    filmSearchService = TestBed.inject(FilmSearchService) as jest.Mocked<FilmSearchService>;
     fixture.detectChanges();
   });
 
@@ -70,7 +75,7 @@ describe('ToolbarComponent', () => {
     component.searchControl.setValue('Jedi');
     
     setTimeout(() => {
-      filmSearchService.setSearchTerm.calls.reset();
+      filmSearchService.setSearchTerm.mockClear();
       component.searchControl.setValue('Jedi');
       
       setTimeout(() => {
